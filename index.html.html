@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Guava · Manual da Afiliada TikTok Shop</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Figtree:ital,wght@0,400;0,500;0,600;1,400&family=Caveat:wght@500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --green:#C0CE83;
+    --green-dark:#7C8A4A;
+    --beige:#F2EEE3;
+    --gray:#6E6A61;
+    --ink:#2B2A26;
+    --white:#FFFFFF;
+    --max-w: 900px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--white);
+    color:var(--ink);
+    font-family:'Figtree', sans-serif;
+    line-height:1.55;
+    font-size:17px;
+  }
+  h1,h2,h3,.title-font{
+    font-family:'Barlow Condensed', sans-serif;
+    letter-spacing:.02em;
+  }
+  .accent{
+    font-family:'Caveat', cursive;
+  }
+  a{color:var(--green-dark);}
+
+  /* ---------- Layout shell ---------- */
+  .shell{display:flex; min-height:100vh;}
+  nav.sidebar{
+    width:260px; flex-shrink:0;
+    background:var(--ink);
+    color:var(--beige);
+    padding:32px 22px;
+    position:sticky; top:0; height:100vh; overflow-y:auto;
+  }
+  nav.sidebar .brand{
+    font-family:'Barlow Condensed', sans-serif;
+    font-weight:700; font-size:28px; letter-spacing:.06em;
+    color:var(--green);
+    margin-bottom:2px;
+  }
+  nav.sidebar .brand-sub{
+    font-family:'Caveat', cursive;
+    color:var(--beige);
+    font-size:18px;
+    margin-bottom:28px;
+    opacity:.8;
+  }
+  nav.sidebar .navlink{
+    display:block;
+    width:100%;
+    text-align:left;
+    background:none;
+    border:none;
+    cursor:pointer;
+    color:var(--beige);
+    text-decoration:none;
+    font-family:'Figtree', sans-serif;
+    font-size:14.5px;
+    padding:9px 10px;
+    border-radius:6px;
+    margin-bottom:2px;
+    opacity:.8;
+    transition:background .15s, opacity .15s;
+  }
+  nav.sidebar .navlink:hover{ background:rgba(192,206,131,.12); opacity:1; }
+  nav.sidebar .navlink .num{
+    color:var(--green);
+    font-weight:700;
+    margin-right:8px;
+    font-family:'Barlow Condensed', sans-serif;
+  }
+
+  main{flex:1; min-width:0;}
+
+  /* ---------- Cover ---------- */
+  .cover{
+    background:var(--green);
+    background-image: radial-gradient(circle at 85% 20%, rgba(255,255,255,.15), transparent 45%);
+    color:var(--ink);
+    padding:90px 60px 70px;
+  }
+  .cover .brand-big{
+    font-size:76px; font-weight:700; color:var(--white);
+    line-height:.9; margin:0;
+  }
+  .cover .brand-tag{
+    font-family:'Caveat', cursive; font-size:30px; color:var(--ink);
+    margin:6px 0 34px;
+  }
+  .cover h1{
+    font-size:40px; font-weight:700; margin:0 0 8px; color:var(--ink);
+  }
+  .cover p.lead{ margin:0; font-size:17px; color:#4a4a3a; max-width:520px;}
+
+  .callout{
+    background:var(--beige);
+    border:1px solid var(--green);
+    border-radius:10px;
+    padding:20px 24px;
+    margin:26px 60px 0;
+  }
+  .callout h4{
+    margin:0 0 10px; color:var(--green-dark);
+    font-size:20px; font-weight:700;
+  }
+  .callout ul{margin:0; padding-left:20px;}
+  .callout li{margin-bottom:6px;}
+
+  /* ---------- Sections ---------- */
+  section.module{
+    padding:64px 60px;
+    border-bottom:1px solid #eee;
+    scroll-margin-top: 20px;
+  }
+  section.module:nth-child(even){ background:#FBFAF7; }
+  .kicker{
+    font-family:'Figtree', sans-serif;
+    font-weight:700; letter-spacing:.15em;
+    font-size:13px; color:var(--green-dark);
+    text-transform:uppercase;
+    margin-bottom:6px;
+  }
+  section.module h2.mod-title{
+    font-size:42px; font-weight:700; margin:0 0 6px; color:var(--ink);
+  }
+  section.module p.subtitle{
+    font-family:'Caveat', cursive;
+    font-size:24px; color:var(--green-dark);
+    margin:0 0 26px;
+  }
+  h3.block-title{
+    font-size:24px; font-weight:700; color:var(--green-dark);
+    margin:30px 0 10px;
+    font-family:'Barlow Condensed', sans-serif;
+  }
+  ul.list, ol.list{ padding-left:22px; margin:0 0 14px; }
+  ul.list li, ol.list li{ margin-bottom:8px; }
+  ol.list li::marker{ color:var(--green-dark); font-weight:700; }
+
+  blockquote{
+    font-family:'Caveat', cursive;
+    font-size:24px; color:var(--green-dark);
+    border-left:4px solid var(--green);
+    margin:20px 0; padding:6px 0 6px 18px;
+  }
+
+  .box{
+    background:var(--beige);
+    border:1px solid var(--green);
+    border-radius:10px;
+    padding:20px 24px;
+    margin:18px 0;
+  }
+  .box h4{ margin:0 0 10px; color:var(--green-dark); font-size:19px; font-family:'Barlow Condensed', sans-serif; font-weight:700;}
+  .box ul{ margin:0; padding-left:20px; }
+  .box li{ margin-bottom:6px; }
+
+  .coupon-row{
+    display:flex; max-width:480px; border-radius:8px; overflow:hidden;
+    border:2px solid var(--green); margin:16px 0;
+  }
+  .coupon-code{
+    background:var(--green);
+    color:var(--white);
+    font-family:'Barlow Condensed', sans-serif;
+    font-weight:700; font-size:22px; letter-spacing:.05em;
+    padding:16px 22px; flex:1; display:flex; align-items:center;
+  }
+  .coupon-tag{
+    background:var(--beige);
+    color:var(--green-dark);
+    font-weight:700; font-size:14px; line-height:1.2;
+    padding:16px 20px; display:flex; align-items:center;
+  }
+  .qr-wrap{
+    text-align:center;
+    background:var(--beige);
+    border:1px solid var(--green);
+    border-radius:10px;
+    padding:24px;
+    max-width:260px;
+    margin:20px 0;
+  }
+  .qr-img{ width:150px; height:150px; display:block; margin:0 auto; }
+  .qr-caption{
+    font-family:'Figtree', sans-serif;
+    font-weight:700; font-size:12px; letter-spacing:.08em;
+    color:var(--gray); margin:12px 0 0; text-transform:uppercase;
+  }
+  .qr-caption strong{ color:var(--ink); font-size:15px; text-transform:none; letter-spacing:0; }
+  .btn{
+    display:inline-flex; align-items:center; gap:8px;
+    background:var(--green);
+    color:var(--white) !important;
+    text-decoration:none;
+    font-family:'Barlow Condensed', sans-serif;
+    font-weight:700; font-size:17px; letter-spacing:.03em;
+    padding:13px 26px;
+    border-radius:8px;
+    margin:14px 0 22px;
+    transition:background .15s, transform .1s;
+  }
+  .btn:hover{ background:var(--green-dark); transform:translateY(-1px); }
+  .btn::before{ content:"▶"; font-size:12px; }
+
+  .checklist{ list-style:none; padding:0; margin:0; }
+  .checklist li{
+    display:flex; align-items:flex-start; gap:10px;
+    padding:9px 0; border-bottom:1px dashed #d8d3c4;
+  }
+  .checklist li::before{
+    content:"";
+    width:18px; height:18px; flex-shrink:0; margin-top:2px;
+    border:2px solid var(--green-dark); border-radius:4px;
+  }
+
+  footer.end{
+    text-align:center;
+    padding:60px 30px 80px;
+    background:var(--ink);
+    color:var(--beige);
+  }
+  footer.end .accent{ font-size:26px; color:var(--green); display:block; margin-bottom:10px;}
+  footer.end .wordmark{ font-family:'Barlow Condensed', sans-serif; font-weight:700; letter-spacing:.15em; font-size:15px; }
+
+  @media (max-width: 820px){
+    .shell{flex-direction:column;}
+    nav.sidebar{
+      width:100%; height:auto; position:relative; padding:20px;
+    }
+    section.module, .cover{ padding:44px 24px; }
+    .callout{ margin:26px 0 0; }
+  }
+</style>
+</head>
+<body>
+<div class="shell">
+
+  <nav class="sidebar">
+    <div class="brand">GUAVA</div>
+    <div class="brand-sub">beleza prática</div>
+    <button type="button" class="navlink" data-target="m1"><span class="num">01</span>Bem-vinda</button>
+    <button type="button" class="navlink" data-target="m2"><span class="num">02</span>Programa de afiliadas</button>
+    <button type="button" class="navlink" data-target="m3"><span class="num">03</span>Campanhas</button>
+    <button type="button" class="navlink" data-target="m4"><span class="num">04</span>Boas práticas TikTok Shop</button>
+    <button type="button" class="navlink" data-target="m5"><span class="num">05</span>Dicas de vendas</button>
+    <button type="button" class="navlink" data-target="m6"><span class="num">06</span>Dicas de Live</button>
+    <button type="button" class="navlink" data-target="m7"><span class="num">07</span>Dicas de posts</button>
+    <button type="button" class="navlink" data-target="m8"><span class="num">08</span>Voz Guava</button>
+    <button type="button" class="navlink" data-target="m9"><span class="num">09</span>Checklist</button>
+    <button type="button" class="navlink" data-target="m10"><span class="num">10</span>Parceria Dalea AI</button>
+    <button type="button" class="navlink" data-target="m11"><span class="num">11</span>Suporte</button>
+  </nav>
+
+  <main>
+
+    <!-- CAPA -->
+    <div class="cover">
+      <p class="brand-big">GUAVA</p>
+      <p class="brand-tag">beleza prática</p>
+      <h1>Manual da Afiliada</h1>
+      <p class="lead">Guia oficial para criadoras e afiliadas Guava no TikTok Shop.</p>
+    </div>
+    <div class="callout">
+      <h4>Como usar este material</h4>
+      <ul>
+        <li>Este manual reúne tudo que você precisa para vender bem, participar de campanhas e criar conteúdo alinhado com a identidade Guava.</li>
+        <li>Guarde este link fixado no grupo de WhatsApp das afiliadas.</li>
+        <li>Dúvidas? Fale com o time Guava pelos canais indicados no último módulo.</li>
+      </ul>
+    </div>
+
+    <!-- MÓDULO 01 -->
+    <section class="module" id="m1">
+      <div class="kicker">Módulo 01</div>
+      <h2 class="mod-title">Bem-vinda ao time Guava</h2>
+      <p class="subtitle">"Beleza prática para pessoas reais."</p>
+
+      <p>Que alegria ter você como afiliada Guava! Este manual foi feito para te ajudar a vender mais, criar conteúdos incríveis e representar a marca com autenticidade no TikTok Shop.</p>
+      <p>A Guava nasceu para simplificar a rotina de beleza de pessoas reais — com maquiagem multifuncional, prática e que cuida da pele. E é exatamente esse espírito que queremos ver no seu conteúdo: simples, verdadeiro e próximo.</p>
+
+      <h3 class="block-title">Quem somos</h3>
+      <ul class="list">
+        <li>Beleza prática: produtos multifuncionais, fáceis de usar, que cuidam da pele além de maquiar.</li>
+        <li>Cuidado em primeiro lugar: empatia e proteção guiam cada lançamento.</li>
+        <li>Comunidade no centro: construímos a marca junto com quem usa — inclusive com você.</li>
+        <li>Simplicidade acima de tudo: menos passos, mais resultado.</li>
+      </ul>
+      <blockquote>"Simplificar a rotina de beleza de pessoas reais." — esse é o nosso propósito, e também o fio condutor de tudo que você vai criar como afiliada.</blockquote>
+    </section>
+
+    <!-- MÓDULO 02 -->
+    <section class="module" id="m2">
+      <div class="kicker">Módulo 02</div>
+      <h2 class="mod-title">Programa de Afiliadas</h2>
+      <p class="subtitle">Como funciona a parceria</p>
+
+      <h3 class="block-title">Como você ganha</h3>
+      <ul class="list">
+        <li>Comissão por cada venda gerada através do seu link/vitrine de afiliada no TikTok Shop.</li>
+        <li>Bônus extras em campanhas especiais (datas comemorativas, lançamentos, metas de venda).</li>
+        <li>Acesso antecipado a produtos novos para testar e divulgar.</li>
+      </ul>
+
+      <h3 class="block-title">Como começar</h3>
+      <ol class="list">
+        <li>Cadastre-se como criadora de conteúdo no TikTok Shop e conecte sua conta.</li>
+        <li>Solicite parceria com a loja oficial Guava no TikTok Shop.</li>
+        <li>Aguarde a aprovação — normalmente em até alguns dias úteis.</li>
+        <li>Assim que aprovada, adicione produtos Guava à sua vitrine.</li>
+        <li>Entre no grupo oficial de afiliadas no WhatsApp para acompanhar novidades, campanhas e materiais.</li>
+      </ol>
+
+      <h3 class="block-title">Regras da parceria</h3>
+      <ul class="list">
+        <li>Represente a Guava com honestidade: fale só o que é verdade sobre o produto.</li>
+        <li>Não prometa resultados que o produto não entrega (ex.: "elimina rugas em 1 dia").</li>
+        <li>Siga sempre as diretrizes de comunidade do TikTok e do TikTok Shop.</li>
+        <li>Conteúdos ofensivos, enganosos ou que firam a imagem da marca podem levar ao desligamento do programa.</li>
+      </ul>
+    </section>
+
+    <!-- MÓDULO 03 -->
+    <section class="module" id="m3">
+      <div class="kicker">Módulo 03</div>
+      <h2 class="mod-title">Campanhas</h2>
+      <p class="subtitle">Como participar e aproveitar ao máximo</p>
+
+      <p>As campanhas Guava nascem a partir da sua participação! Fique sempre de olho no grupo de WhatsApp das afiliadas: é por lá que tudo acontece.</p>
+
+      <h3 class="block-title">Como as campanhas funcionam</h3>
+      <ul class="list">
+        <li>O time Guava envia as campanhas do mês diretamente no grupo de WhatsApp das afiliadas.</li>
+        <li>Você também pode sugerir uma ideia de campanha — é só mandar no grupo.</li>
+        <li>Toda campanha divulgada no grupo tem prazo, produtos participantes e condições especiais.</li>
+      </ul>
+      <a class="btn" href="https://chat.whatsapp.com/JOmpRyO7bsG3ZRiUxlrmZv?s=cl&p=i&mlu=0" target="_blank" rel="noopener">Grupo de WhatsApp</a>
+
+      <h3 class="block-title">Planilha de programação de Live</h3>
+      <p>Temos uma planilha compartilhada no grupo onde você pode registrar:</p>
+      <ul class="list">
+        <li>Os horários que você pretende fazer sua Live.</li>
+        <li>Se você quer um cupom de desconto para divulgar.</li>
+        <li>Se você quer participar de uma promoção relâmpago (flash).</li>
+      </ul>
+      <p>Com base no que você preencher, o time Guava analisa e monta as promoções de acordo com as campanhas do mês.</p>
+      <a class="btn" href="https://chat.whatsapp.com/JOmpRyO7bsG3ZRiUxlrmZv?s=cl&p=i&mlu=0" target="_blank" rel="noopener">Planilha de Programação de Live</a>
+
+      <h3 class="block-title">Aba de campanhas do mês</h3>
+      <p>A planilha também tem uma aba só com as campanhas já confirmadas para o mês. Consulte sempre antes de planejar seu conteúdo, para alinhar suas Lives e posts com os dias de promoção.</p>
+
+      <div class="box">
+        <h4>Fique de olho</h4>
+        <ul>
+          <li>Acompanhe o grupo de WhatsApp diariamente para não perder nenhuma campanha nova.</li>
+          <li>Preencha a planilha com antecedência para garantir cupom ou horário de flash promoção.</li>
+          <li>Combine campanhas com Lives e posts para multiplicar o alcance.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- MÓDULO 04 -->
+    <section class="module" id="m4">
+      <div class="kicker">Módulo 04</div>
+      <h2 class="mod-title">Boas práticas no TikTok Shop</h2>
+      <p class="subtitle">Vendendo com responsabilidade</p>
+
+      <h3 class="block-title">O que fazer</h3>
+      <ul class="list">
+        <li>Use os produtos antes de divulgar — sua opinião fica mais real e as vendas mais consistentes.</li>
+        <li>Mantenha a vitrine organizada, com produtos em destaque e descrições claras.</li>
+        <li>Responda comentários e dúvidas nos vídeos — isso aumenta a confiança e a conversão.</li>
+        <li>Atualize a vitrine sempre que houver lançamento ou campanha nova.</li>
+        <li>Cuide da qualidade de imagem e som dos vídeos — isso impacta diretamente o alcance.</li>
+        <li>Se inspire em vídeos que já deram certo de outras afiliadas que você admira — é bem provável que esse mesmo caminho também funcione para você.</li>
+      </ul>
+
+      <h3 class="block-title">O que evitar</h3>
+      <ul class="list">
+        <li>Não compare a Guava com concorrentes de forma negativa ou depreciativa.</li>
+        <li>Não use antes/depois enganosos ou promessas de resultado exagerado.</li>
+        <li>Evite excesso de efeitos e filtros que distorçam a cor real dos produtos.</li>
+      </ul>
+
+      <h3 class="block-title">Boas práticas de plataforma</h3>
+      <ul class="list">
+        <li>Publique com regularidade: consistência pesa mais que picos isolados de postagem.</li>
+        <li>Use os hashtags e recursos de produto (product link, product card) em todo vídeo de venda.</li>
+        <li>Aproveite os horários de pico de audiência do seu público para postar e fazer Lives.</li>
+      </ul>
+    </section>
+
+    <!-- MÓDULO 05 -->
+    <section class="module" id="m5">
+      <div class="kicker">Módulo 05</div>
+      <h2 class="mod-title">Dicas de Vendas</h2>
+      <p class="subtitle">O que faz o produto sair</p>
+
+      <h3 class="block-title">Antes de gravar</h3>
+      <ul class="list">
+        <li>Escolha 1 problema real que o produto resolve (praticidade, cuidado com a pele, rapidez na rotina).</li>
+        <li>Defina um gancho para os 3 primeiros segundos — é o que decide se a pessoa continua assistindo.</li>
+        <li>Tenha o produto em mãos e testado, com aplicação já treinada.</li>
+      </ul>
+
+      <h3 class="block-title">Estrutura que converte</h3>
+      <ol class="list">
+        <li>Gancho: uma dor, dúvida ou surpresa relacionada ao produto ("eu não sabia que dava pra fazer isso com 1 produto só").</li>
+        <li>Demonstração: mostre o uso real, no rosto ou na pele, sem cortes que escondam o resultado.</li>
+        <li>Benefício prático: explique por que é fácil, rápido e funcional — o "DNA" da Guava.</li>
+        <li>Prova social ou detalhe sensorial: textura, cheiro, acabamento, durabilidade.</li>
+        <li>CTA claro: "tá na minha vitrine", "clica no carrinho amarelo", "link nos comentários".</li>
+      </ol>
+
+      <div class="box">
+        <h4>Gatilhos que funcionam bem</h4>
+        <ul>
+          <li>Multifuncionalidade: "um produto, várias funções".</li>
+          <li>Economia de tempo: rotina mais rápida.</li>
+          <li>Cuidado com a pele aliado à maquiagem.</li>
+          <li>Preço-benefício e durabilidade do produto.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- MÓDULO 06 -->
+    <section class="module" id="m6">
+      <div class="kicker">Módulo 06</div>
+      <h2 class="mod-title">Dicas de Live</h2>
+      <p class="subtitle">Vendendo ao vivo com confiança</p>
+
+      <h3 class="block-title">Antes da Live</h3>
+      <ul class="list">
+        <li>Divulgue a Live com antecedência nos seus vídeos e stories.</li>
+        <li>Separe os produtos que vai apresentar e organize a ordem de exibição.</li>
+        <li>Teste iluminação, áudio e conexão de internet com antecedência.</li>
+        <li>Defina 2 a 3 metas de venda ou de ofertas-relâmpago para criar ritmo.</li>
+      </ul>
+
+      <h3 class="block-title">Durante a Live</h3>
+      <ul class="list">
+        <li>Abra com energia e apresente rapidamente o que vai rolar (produtos, ofertas, novidades).</li>
+        <li>Alterne entre demonstração de produto e leitura de comentários — mantenha o público participando.</li>
+        <li>Repita o CTA de compra a cada poucos minutos: "o produto tá fixado, é só clicar".</li>
+        <li>Use ofertas por tempo limitado para gerar urgência de forma honesta.</li>
+        <li>Agradeça quem compra e quem comenta — reconhecimento gera fidelização.</li>
+      </ul>
+
+      <h3 class="block-title">Depois da Live</h3>
+      <ul class="list">
+        <li>Salve os melhores momentos e recorte em vídeos curtos para continuar vendendo.</li>
+        <li>Avalie quais produtos tiveram mais engajamento para repetir na próxima Live.</li>
+      </ul>
+    </section>
+
+    <!-- MÓDULO 07 -->
+    <section class="module" id="m7">
+      <div class="kicker">Módulo 07</div>
+      <h2 class="mod-title">Dicas de Posts</h2>
+      <p class="subtitle">Conteúdo que roda e vende</p>
+
+      <h3 class="block-title">Formatos que funcionam</h3>
+      <ul class="list">
+        <li>Tutorial rápido: uma aplicação do início ao fim em até 30 segundos.</li>
+        <li>Rotina de beleza: mostre onde o produto Guava entra na sua rotina real.</li>
+        <li>Antes e depois honesto: sem exageros, com boa iluminação e mesma pose/ângulo.</li>
+        <li>Unboxing e primeira impressão: gera curiosidade e humaniza a divulgação.</li>
+        <li>Resposta a comentário/dúvida: ótimo formato para engajamento orgânico.</li>
+      </ul>
+
+      <h3 class="block-title">Boas práticas de edição</h3>
+      <ul class="list">
+        <li>Use boa iluminação natural sempre que possível — cor real do produto é essencial.</li>
+        <li>Legendas curtas e diretas, com o benefício principal em destaque.</li>
+        <li>Adicione o cartão de produto (product card) logo nos primeiros segundos do vídeo.</li>
+        <li>Finalize sempre com um CTA claro de compra.</li>
+      </ul>
+    </section>
+
+    <!-- MÓDULO 08 -->
+    <section class="module" id="m8">
+      <div class="kicker">Módulo 08</div>
+      <h2 class="mod-title">Voz Guava</h2>
+      <p class="subtitle">Como falar como a marca</p>
+
+      <p>A Guava tem um jeito próprio de se comunicar — e quanto mais o seu conteúdo tiver essa essência, mais fácil fica conectar com quem assiste (e vender).</p>
+
+      <h3 class="block-title">Nosso tom de voz</h3>
+      <ul class="list">
+        <li>Próximo e humano: fale como quem dá dica pra amiga, não como quem lê um script.</li>
+        <li>Cuidadoso: transmita empatia, sem julgamento sobre rotina, pele ou tempo disponível.</li>
+        <li>Simples e direto: nada de termos técnicos complicados — praticidade é a nossa cara.</li>
+        <li>Orgulho genuíno: fale bem do produto porque você realmente gosta, não porque "tem que vender".</li>
+      </ul>
+      <blockquote>Fale a verdade, com simpatia, sobre um produto que realmente resolve — essa é a voz Guava.</blockquote>
+    </section>
+
+    <!-- MÓDULO 09 -->
+    <section class="module" id="m9">
+      <div class="kicker">Módulo 09</div>
+      <h2 class="mod-title">Checklist da Afiliada</h2>
+      <p class="subtitle">Antes de cada publicação</p>
+
+      <div class="box">
+        <h4>Checklist rápido</h4>
+        <ul class="checklist">
+          <li>Testei o produto antes de gravar?</li>
+          <li>Meu gancho prende atenção nos 3 primeiros segundos?</li>
+          <li>O produto está com o product card/link ativo?</li>
+          <li>A cor e a textura do produto aparecem reais no vídeo?</li>
+          <li>Tenho um CTA claro de compra?</li>
+          <li>O conteúdo está alinhado ao tom próximo e honesto da Guava?</li>
+          <li>Respondi aos comentários do vídeo anterior?</li>
+          <li>Estou participando das campanhas ativas da semana?</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- MÓDULO 10 -->
+    <section class="module" id="m10">
+      <div class="kicker">Módulo 10</div>
+      <h2 class="mod-title">Parceria Guava &times; Dalea AI</h2>
+      <p class="subtitle">De criadores para criadores</p>
+
+      <p>A Guava fechou parceria com a Dalea AI, uma inteligência artificial feita por criadores de conteúdo para ajudar outros criadores a crescer no TikTok sem gastar a semana inteira produzindo vídeo.</p>
+
+      <h3 class="block-title">O que a Dalea faz por você</h3>
+      <ul class="list">
+        <li>Analisa o seu perfil e explora o seu nicho em busca de conteúdos que já estão funcionando.</li>
+        <li>Gera ideias e roteiros prontos, no seu tom, para você só gravar e postar.</li>
+        <li>Edita os vídeos para você — menos tempo de edição, mais tempo criando.</li>
+      </ul>
+
+      <h3 class="block-title">Benefício exclusivo para afiliadas Guava</h3>
+      <p>Como embaixadora Guava, você garante acesso gratuito por tempo limitado usando o cupom abaixo:</p>
+
+      <div class="coupon-row">
+        <div class="coupon-code">EMBAIXADORGUAVA</div>
+        <div class="coupon-tag">cupom<br>exclusivo</div>
+      </div>
+      <ul class="list">
+        <li>2 semanas de acesso grátis à Dalea AI.</li>
+      </ul>
+
+      <div class="qr-wrap">
+        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAlgAAAJYCAIAAAAxBA+LAABSd0lEQVR4nO3dd5glRbk/8HqrOpwws2F2ZzO7y5IkKCrGqxdFRK8iYgQVRcF4vahwAVEwYORnFhTjFVFEvWZEjAQVsyTJArrALixsnpkTu7vq/f3RO3NH0GW7+pzT55z6fv7wweeZ7n67urq+1d1nnyJmFgAAAK6SRRcAAABQJAQhAAA4DUEIAABOQxACAIDTEIQAAOA0BCEAADgNQQgAAE5DEAIAgNMQhAAA4DQEIQAAOA1BCAAATkMQAgCA0xCEAADgNAQhAAA4DUEIAABOQxACAIDTEIQAAOA0BCEAADgNQQgAAE5DEAIAgNMQhAAA4DQEIQAAOA1BCAAATkMQAgCA0xCEAADgNAQhAAA4DUEIAABOQxACAIDTvK7unZmZuauHgK4iIiIquopccnZCKXNNFvPfAoN+CfqhBYwxeTaHfpDzTtw5QlABAIDLuvVEqLVWSv36l1ecetKbFo6PJ0nSpQNBNxDtmCGd8a73HvzUQ9KrWXRRmRljpJTnffHzF3zlS2FYZs7wWEBEWifz5o99/Oxzd1u5Kt2VxdH/ct01Z5x2ShRFUsqsk04pZbPReOWrX3vcq1/HzAP3XJi2wEXf/+7ZH/9wEIR2c25jzBnvfs9TD3m6xSVIG237tm3//eY33nXX2iAI8Wg4iJhZKfWt7188OjqnSzdCt4Iw7fQTE9uvve6mJUvGkjjq0oGgG2aCcGJie9G15HXfhg1/ufbacqWSNQiTJB4fX9xut/IcvV6r3XjD9a1WUyllEYT1qdp9GzbkKaBwWzZvvv66a8NSyS4Itdbbt2/PU0CSJH+99Zbb/npLWCohCAdRGoRdfZrq7jdCz/NGKl61Wk3ioKsHgs6aCULP624P6YEgCKojI+WyTRBWqlWiXF8mpJTValUpZReEgkUQDPa94/t+dWQkDO2DMGcnJKJKpZLWgCAcRGkQdvWNSNd/LGOmdfVA0FkzQTgEn5BnOmHWIOxUv033M9OkWbcd9Eswq/0tX43mbwEzS85dQe/14LsA/vkEAAA4DUEIAABOQxACAIDTEIQAAOA0BCEAADgNQQgAAE5DEAIAgNMQhAAA4DQEIQAAOA1BCAAATkMQAgCA0xCEAADgNAQhAAA4DUEIAABO6+vV5oho4Fbl7ivMXPgiPjkXvhmCPiCnWaxHKKXsh9O3u4gzW9mdfqoHS/A8pCHohIXr8wWw+joI2+22MVoIdEE7rJTn+36xRUjp9FsHY0yj0Wi1WnYL8zYajTiOu1RbpkqstyKiRr2uteWyglrrri5Nvms1JFFU/FUYXCSEHwT9PBT0bxCSlE/694PHxxdprYuuZSApT9219s4brr+umP7HLIhazeYf//D7Wm1KKWWxjyRJli5b9uiDHjeI0/H0GWLhwvEjjnx+Esdk9UTYarX23W//7hS4qxr1+h//8Ptms5G1IzGzUt7U1NSLjn6plJnnATM7WbFiNzHdnj1GRGknfOSjDrJ+qHUcESVxfNWf/7R16xYplRD92IZ9GoTMHHjeif/91if825O01ngvkZUxxvO8r1/41etPvZaI0sXme1oAsyTaunXrme9429/+dke5XM76bkRKWavVDn/ukZ/7wpdJqX54RZZJWu1e+zzsk5/+nP1emEmSKCgG0jbfuHHjO95+6r33rPd9P1MSkJSNeu01r/+vz37x/Dx3cbphUUEYRe2HH/iocz7zeaW8geuEhWNmKeXU1OTxxx5z//0byuWKMQjCjNIZaJ98JhlEsg/azTCbaZm3NYb78rbZdcPxeWnmEmYKQvmPnwkHtx2ISEqVPhEO7lkUIm0xKVWfN1tfByFPK7qQwdM/7UazWGzYpap6KeeF6IdGyHkFc/bGfmgBjEV20hbr/3br6yCcuZH64U4YLP2TIjyLxYZdqqqX+uRC5GF3EWf+fgjuYoxF1vpnLNqJ/v0ZDwAAQA8gCAEAwGkIQgAAcBqCEAAAnIYgBAAApyEIAQDAaQhCAABwGoIQAACchiAEAACnIQgBAMBpCEIAAHAaghAAAJyGIAQAAKchCAEAwGkIQgAAcFpfr0eY3xAsaNf/S3ntXM6FeTtx+jP7ybCrzh29+IV5rQuYWVUVC/PmN9Bj0XBcgp0Y8iAc+uvX55g5jqIoipRSxphM20opo6gdx3HOGrROoqitlMecoQAiSpI4iqL841fhndC6gHRDz/fjeEdTZGoNKWW61UAszdptaIF+NqRByCyI7lm/7utf+2qz2ZREAzcZk0RxEi9avOTYVx4/MjqajiZFF5VBWu28efNOPOW0ie3bPU9lTRQiGcfR7mv2ICmF1TiSbnLYM5+5cHyh53mZCiAiY0y5XBkfH7c7enrJ7lz792987atxklh0QknUbrcPOfTphxx6WNajz/bNCy+45ZabAj8wWS+BECzY87zX/ed/SaWyNgELEqzr9cb7znwHCct7kI154VFH73/AIwbuFpjtx5dc/Mff/TYIMl+CwkmiOI6f9vRnHPzUQwb6EuzccAYhC0FC3Hffhs9/9tMT27YplXkULpyUstFs7rf/AS980dGDG4TVkZEXH/3SYms46LGPP+ixj+/IrjJJL9k969d95tOfbDVbFp1QSlmr1Uul0iGHHpanA1x80fcv/uH3q5Vq1odyImq1W/vut//Pr/jN6Ogcu6N/7Stffufpp5bCst09mGj98EceOKBBmJ4yEf36iks/86lzqtXMl6Bw6UA0Ojrn4KceMj2yDqHhDMKU53lz584VzAMahEEYjo7OGbib/wGM1nmanoikzPWTLjYmzzRcKZXn6J7nzZ07Lwwtg9DzvLBczlOAEKJarc6bN69iFYSldrtardZqtUqlmjWKjDFSSmPMvHnzw7Bkdw9qrX0/sNiwr5TLlXnz5lUGMwiDMAzDsOhCumuYg5CZtdZaazGAX6rT4o3RRReSl8wXJPmRlAVWkKcTptty7qHTGJPWYBGE6VZSyjTIMwXhzCQmPbp1EA7czftg1pegcDs64eBfgp3DP58AAACnIQgBAMBpCEIAAHAaghAAAJyGIAQAAKchCAEAwGkIQgAAcBqCEAAAnIYgBAAApyEIAQDAaQhCAABwGoIQAACchiAEAACnIQgBAMBpCEIAAHDaMK9HCH1icBczIyFEHyyMzMyD24ZCCCKyXl960BemhoGAIISuw1iWB00ruhBLzGyMNsbYZbkxmsUATwJgICAIoZuYE60Fcz88V2XGQpBQShUbQlrrJEnYGJKWHzKKfZpUSvl+4Pu+XRlSSkWq41UBzIYghK5gZiLasmXLB9777g333hOEIRtTdFEZEJHWydy58884873Lli1PT6fHNTBzEIaXXPyDm2+8QRtjffibb74x8IPex2HaYoce9oyVq1dL2xQXLB62774C7xWgmxCE0BVpcrRard/99te333ZbpVw2gxaEcRKPL1p8Uv00MX06Pa6BmZVSd65de/ttt+U5dhAEUqmignDpsuVLly3v1N4AugFBCF1EROVypVqtlgcwCJMkrlQqhY+/vu8HQZBnD8X+1ib/0Qf6EykMBAQhdJeZpehaMiCiPqnZ5Z+MAvQG/h0hAAA4DUEIAABOQxACAIDTEIQAAOA0BCEAADgNQQgAAE5DEAIAgNMQhAAA4DQEIQAAOA1BCAAATkMQAgCA0xCEAADgNAQhAAA4DUEIAABOQxACAIDTsB4hdBfNYreH/Mu62m3VqYX08u+qkBYQHW0EgH6GIIQuYuY4jqMoUkpZLXLLUkqlcvXSJEksDp2uUB9FUc4QYuYoitIWsNoVS6mUUnlqSOLYsBEic54RURRFcRwP9MrAAA8JQQhd5Pve7mvWeEqFpZJFGikpp6Zq99+/wboANmbh+KKxsbGsRycinSTzx8aCMLQ+uhCiXKnstfc+UbstrYJQSbll65atW7bkeSxbtmK30ZERbTUbiKNo5arVnoeBAoYZ+jd0hZRSCLFg4fgnP/XZRGuR/XlEG1MKw8svu/Ttp56ktbZIAillo9k86qXHHP+a18VxLLPsgYUQzEqq+QsWiOnTyXp0IcR++x9w/oXfFCzYqgXCMPzSFz57zic+ViqV7B7LWIhTTjv9KU89JMrYAum2Qgil1Pz5C0SOV6wAfQ5BCF2klFo4vijPHhYuXJj+BxFZJIFhnjt37sKF43lqyCMIwsWLl+bZw5w5c6cjyQrzwoULFxTXAgD9D0EI3WX9eckYI6VMkiRnAVprZmY2RDa/kc7/GJSzBbTWOQtIkoSZ073Z7QHPgjDcEITQXYX/ZHF6J4X9+rFPWgC//wT4V/DvCAEAwGkIQgAAcBqCEAAAnIYgBAAApyEIAQDAaQhCAABwGoIQAACchiAEAACnIQgBAMBpCEIAAHAaghAAAJyGIAQAAKchCAEAwGkIQgAAcBqCEAAAnDbk6xESyZT14qhFScseggXkmNmu8Y0xIseqtp1iXX9+aQuI6c5gV0ZHii+wEcT/rSg5wGh6JCq6kMyGZiDauWEOQmNMs9loNOpKqcLH06yklM1Gs9VqDVzlD2A9iqWjRhiGna4omwJH4Zlxs1GvG8PMxmInzGxM3jXuhyCKihVFUaNeF/R/k5tBkQ5EcRwXXUh3DXMQLlw4ftRLXtZsNAfxiZCI4jhaumx5uVIROVY5LwozE1GjXv/VLy+fmpxUnpf1ErAxQRj+5bpreXqH3ahz59rt9i8vv3Ri+zbl+QUUwCylTJLklce/TillvZtly3cTObpQbWrqV1dc3mjWiQp4oGE2T3jik3ZbuSrtUb0vIA8iEsxCiMc+/onNZjMIwgEdiA448MD0/xVcTdcMZxCmN8zKVavf+4EPFV1LZwzcEJAOW9u2bTvznaffcftt5XLZbi6slAqCoPenz2yIZK029cH3vfuG66+vVCq9n8srKWu1qTPe/b6Pnf3p/HuzaMP0Im7atOmdp791/fp1vl/AbEBr/fnzvjKgQSiEEERCiOe/8MXPf+GLiy4lr4Fs/10znEE4Y+BeRDwAkShkGt4pRFSuVKrVqnUQFv51qlQqV6vVQoJw5k2GMSZPDEgikWMII6JKpVKtVosKQs8b+GGq2G6c39C/Gx/4HrZzg/h1esiw+T9F12KDmQusPz1omogFjkQzLdD70byQg3bc0AfJoENOAACA0xCEAADgNAQhAAA4DUEIAABOQxACAIDTEIQAAOA0BCEAADgNQQgAAE5DEAIAgNMQhAAA4DQEIQAAOA1BCAAATkMQAgCA0xCEAADgtAFYhmkIFmHpvWFqNOv1a2avfcPMQmRok9l/T9MsauiTC2FXBjPPnPOgt0BOPK3oQgZM2mL93259/USInpdH1qF/iFn3ovyrAPbDKnR57iHO3QjFnz/AQ+nrJ0KlFBa0tKOUEkKQVEUXkhcza63ttpWS4jgWO55msjVF+vdKeTpJkjhOksRiYV5mJkmq6KtAJOzyKL31lFJJksRxTERZpxTMLKUc9PWxiYTneaI/pjWDJW0xz/Oov2dEfRqERJQkyec/9+mLf/j9JEn6vBH7EivP/+utt1gMXn2CiNrt1sMf8ahjXvFKKSVbPN2ykEpuuPfeM047xWIIYyE8pY459rhyuWyMydoH2XAQhn+99eYLzj8vjuN0lfmsNXTEV8//0k033OAHgcWzIQsOguCNbz4xCAI2nKkR2HAYhr/+1RUXff+7vu8PYj9kZt8Pbr7xxjNOO4UkMTPGokxYsCQZR+277lrreb4xfdoH+jQIhRDGmJ9e8iOjtcAszA6z8jzf94uuwxIRJYnebeWqY459VZ79fPis93/23HMqlSpzhkc6IkriaHzxkkt+fsXKlausj37NVX+68KvnF5sBl/7sp5dc/INKdSTrQy0RtVqth+2778U/vXz+/Pl2R4/j+Pvf/ZYQA9kPmdnzvLvvuvP8874oBONFrxUmQX4QKKX69mNN/wahECIMQ7yLyGMIPrJqnSRxLJWy+FJljJFSkqBqtVouVzIHYeKXy+Wo3TbGpLuyOHq73c60VTeEYVipViuVikUQKqXCMGy3msbMzXoJ0haIoihjvX3HG+QJZZ+w+LLQS30dhEMwjkNORJR+ZLL7yUaaXmmSZQ3CdKu0gJldZT16P8zkmNlMy7Rh2gjMTLaXoE9aICcMRENvsD9iAwAA5IQgBAAApyEIAQDAaQhCAABwGoIQAACchiAEAACnIQgBAMBpCEIAAHAaghAAAJyGIAQAAKchCAEAwGkIQgAAcBqCEAAAnIYgBAAApyEIAQDAaV1fjzBdkGwI1iRzSgevFxGRVR9IFwIkImZmNswi6/LWPC3TVv9qJ5mWM5y9IRER2SzLN9N0WTfsuFktkKGYmcbPcxZEMv+68DOXoB8aEyx0+8J1NwiZOYqSJEmSJO7qgaCziGQ67udfjzRJkjiKfM8zRmfaMF3c3BijPE8IYXEjKJX+r8q85Sye56ULtVsfPUmSOI6YvaxRKqWKo0jrbO3WcUSUNgJRtkZIW4CI4ihSUmU9/ZROtN2GsyVJksSRUiprJ4R+0IOFkbsVhOmwFYTBokULFyxYkCRJlw4E3UCCWLAQIgiDPPuRUs6fPzY+vqhUKpmsMUCyXKmGpXDL5s1SKcGcNQzZGM/3Go267XSSmHnbtq1jYwuSJKGMK9QbYzxPNRqNsbEFURRJKTnjE60kWS6VK9Vqpq06LtF665YtnucbYzK1JBujPC9JkvFFiwM/yHr6Ka11GIQWG84gSfPnjy0cHw+CzJ0Q+gEbVkp19aGQupa0LARNTU7effednud3O8+hS5YvXzE6Z076fs9i8ySO777rznYUSaKsPSA96E03Xn/e/3yBjUnfkWYtQCl1330btmzebFE/s/A8tXLV6lKpbPEkQSTjqP2w/fd/3RtO8D2Pswc5CWHYLBxfND6+KOvRZ3vNK4/5yY8vrlSqxmSOAWYOwnDlylW+H2R+oiXZjtqHHHrYC150lMU8Zsay5SvmzJljt60QQuvkrjvvjNptyt4JoU+QEHvuvU/Otzs70b1XoySEGJ0zZ/8DHtG1Q0CPWM/FPN9fs+deeQ59330brr/2mkRrKaXVdIp9P/A8m35OJJIkufWWm4zJ9m0spaSs12rzFyw44OEDfAsQUdRu33TjDRaNL6Ws16b+7ckHP2zf/bpR2y5Syluzx54FFgD9r+vfCLO+ToG+kv/3BcaY9PWAxYZSUhLHlWpVWwchERtj/UKCiMrlihCU9Xc6YvpnYr7vt1qtIAgsn6qZC/+9DBFVKjaNIKUkEkRkjGa2nk6x3U+NZrPuhNAfWAiSGb9NZNLdILT7lQEMkzzdN80SY0z6Tq+QF+wWrxNnaK2ZWUqZpvjgzgitGyH9pY+UqtjT7+oYCkMA/QMAAJyGIAQAAKchCAEAwGkIQgAAcBqCEAAAnIYgBAAApyEIAQDAaQhCAABwGoIQAACchiAEAACnIQgBAMBpCEIAAHAaghAAAJyGIAQAAKchCAEAwGm9WZjXYllTECwEUa7lKHe0fwdr6qF0MdU8ywGm0ja07IDcgQIKJ6VUSkmlRPYVAWm6F3WjsF1kjGFmy1V9c99EQghm5hwtwNMra1rvoR9aINdIQpR/ie+uwsK8w2yg218qJYQolco59xNFURLHFhkghCCiMAz7+QbeFa1Ws1abMsYuz5hIFtsIhS+rS0RU6H3UDy0wuCPJruhWEKYLUk9OTKxd+3ff9wtZW3zQsTFhqbT7mjWe59vtYdvWrffcs14SDWLrG2M8z7vj9r/m3MnyFbstWrzYaJ0tC5lJyiSO71z792azWfhIlMeee+3z2Mc9oVQqm6y3IbOUqtVq3rl2bRxHRWXh+nV3b9u2zeISkBCG2fe83ffYIwhC6wKmJifX3X2X9U3EzMuWLx8bW2C3udb6zrV/bzYaZNUJjTEjIyOrVu+epw9vvP/+jfffZ1FA+kZBKrVq9epKpWpdQLd1Kwi11p7n/fEPv3/dca8YX7w4SeIuHWhYSZKtVmuvvff5wpe/Oj6+yBiTqR+nf3/F5b9477vO8DzPsBi819MspJRR1DbGEJHFXEpK2Ww2j3rJy179ujdorTON48wspdy2deurX3nMrbfcXKlUBvcd6cmnvf3NJ50isn+iYGYp1d133vna416+YcO9Rc1ozz37kxf94DuVStVwtksgiaIoXrRo8XkXfH3lqtVZbyIxfR9d9ec/vvXkt+hEExFnaUMSJITQOnn7u95z9EuOyVpA+jhRr9fPeNspN15/falUytoCSqna1NS/Penfz/3CeaVSKd1hpj2kNX/3298895xPWhQgibTWIyOjn/rcFx/5qIMsLkFvdPfVaBS1N23arHwVRwjCbJSUjWZzfNEiNvZDT7vd3rx5s+d5TELk2E8haMfHFZLS/p0MM1eq1Tlz5lrvwfO6e4/0QLU6InLMxefNn1/s4FWrTW3evGmk2tQZ5yJEFEWR7/tG6zwFRFG0dfPmOEmUkibLfSQlCSHiOG4329ZHZ+bt27dv3rypUi5nbQFPqcmpyYmJiZzz4EajYVcAEWmtd3ye6GNd/0YYBJ7n+QP3NFI4KaWf6JyjsJTS933P81gIMZBvp9M3K7kq11ozM7MhyjQZN0QySZIheKvPzOlvJiw2JKIkSbpR1a5TSvl+4Pm+zD4KM7PneXZfiGfvx/N9kf7qKkt/mHn8kirXTMLzPLsW2NF0uSdzeS6BlNLz/D7/0N712W76e6chGE16LB27c7YbzxADGoQdqHn652pZf7TW779z23Xp6VtvW3gjzNwLFrdDpwYf5n+4mXpcg3ULdGQYyVOA6Nwl6Kp+fF0LAADQMwhCAABwGoIQAACchiAEAACnIQgBAMBpCEIAAHAaghAAAJyGIAQAAKchCAEAwGkIQgAAcBqCEAAAnIYgBAAApyEIAQDAaQhCAABwGoIQAACcNvCrb3dVgYuxSSmlVFJKY0y6tGymzdNlIAWzlFJKWeB6hCbjSp4PkOcSSCmlUkIIrbUQnGk3zIYEG2NmLoTd0YnIGJNejqL6Uv5uLKdl6of/2P7Cuob+X82u22bav2cbugZBuDNxHMVRnHN5aztSykaj0Wo1y+WKUspicyGEVKpeq3m+X8xQwkxShmGYZxROkiSKIsEsSGRdXVZKWZuaFCQsGjB9WVKuVFrNZq02xWyyJrqUsl6rxVFUKpWyH72PMHOjUa/Xa74fZA3CWm2SjbFq//+Tf4H1gcbMzUajXqulM6pM2yol67Vas9nsUm1Dw+ketnNa6wMe/siDDnpMnMRFzOWJ2YRh6eKLvheEgTGZk0xKuWnTpuNf+4ZCnkOYWSk1NTV1xWW/mJycVMrLutw8EcVxvHLlqicf/BTb9ic2Om5H3/7m13X2B1MiSuL4kEMPe+KTnkSkstYvBBljRufM+caFX51+lirmifDgpxyybPly681H58x58Utetn3btux5RsboOXPnfuubX7d+MSBJrl37N8/znH0uDMPwuc97waMPOijrREQIQUStdnvvvfeRCkP9zqB1/jkimSTtpz7t0FPfdkaBZaz9+99e8sIj71m/PgxDwxmGEkmy3qgf9+rXnvWRT3SvvId034YN1117zdatW33fz5rlRBRF0b77HXDWhz+e56H8I2d94M1vfF25UuUsDZim4MJFi75z0SVr1uxpffQ//v63x77sqFarpaTizFHaAWz4vAu+sWz58vQ1b6Zt0/nHwoUL3/6OM60L+OqXv3TiCW8olUqWScaCJFlkwBBI279cLr/5pFM6uEN4MAThznDKMMled6B02GJmKaXylPIUmQw1SCk9zyOi9AxEz++BtH6tc30gFEKwYKM1KWXxjW1m6Feep5RizrA5ETEbqRQbZmaLFJm5gmpaIUM5y2wfR//FXgQLJkGZsnym0Twv1+k7GIEPln4csJtLIf8eEj6iPrRCJvKzDHQn7kDTFdj6A930HZTeAkXfCO5iZiEY7d89eCJ8CDStkOMKIWaeSzPNix/8INjjU+hgu83sJ+veZja0aEDxj21ocS4PPnoxT4SdOKjddczZ/jADj3TdhidCAABwGoIQAACchiAEAACnIQgBAMBpCEIAAHAaghAAAJyGIAQAAKchCAEAwGkIQgAAcBqCEAAAnIYgBAAApyEIAQDAaQhCAABwGoIQAACc1vVlmIpaxiinQaz5nypw9R+svJPKeQt0pA0LuRwdPGKedaA6shRXsXLWkK5h1qFabOVejKyrA3LXg3BgB8RBrPmfGIL1CAddsesRpgq5HB08YJ7V7XMvKml35E7qiyJyIurnMQFB+K+kNQ9c2f9EIT3PbindoZQnCImI0xl9HgVdCyISgnJXL5iZiOzGkLTZSVi2QHoK6MX5WV+C3uhWEEophRCPevRBX77gG6Vy2RjTpQN1CRFprffaex8xfS6DxRgTBP7vfvubt/zX643h3nc/ZlZK1Wu1LZs3+74/cB0gPylJCLHn3vt8/JzP2J0+M3ue99NLLv7+977r+5a3KhF97txzfvj97yZJ0uNhiJk9z7/jjts8z7feiTHmuNe8/rGPe7x1/VEUffbcs2u1msWNzGw8L7hn/d3GmKIG8Uajcc4nPnrXnWuDIMg6G5BSNpvNfffb/41vOjEIgi5V+JA1tFqtj3/0QwvHx7XWFs3IzFLKD37449VqtRsVim4H4dJly1/w4qO7dAjYOSm9v//tjptvvEFQEU+2JJiFlLJSqQziTKITSAixcOH4s5/z3Dx7ufee9d/9zv8S+davVa785RVxEhNRr7sBCWYOgrBUKuV5t/lvT37y0w/7D+sqWs3mR//f+2+++cZSqWx0xhkJCWb2/aBcLosOfa/ddemjcBRFP/3JJddc9edKJXP9ylOTk/WnHfq0N/zXCUIE6Q67VO0/lbZYksSXXfqzJNFkNRYxs/LUme8/q1qtdukUuvtqlJntpgD9gYnkIA/iHARBqVQu6uiCSDBrrQsqoC8ws/XTsDEmndHnrKE6MkJSCu7AS9aMWBCxMTnfB9Trda112hrZDs9MJCYnJ6vV0fljC8IgNCbrMNyZU8iDiObMmTN/bKxcKmWtXympPG90dE7PL/0/IKLR0TnpgGBRCTMrJQf4xzJE5Hld/wwJ/woza50UXYXTiEgpZb2tlB2YihljxCC/mpZSKqXS1si0Yfr0oJQyRusk0cob0Ff0WmudJOlsIOOmKt2wK2VlkacGZhbC8ibaRYP7uAMAANABCEIAAHAaghAAAJyGIAQAAKchCAEAwGkIQgAAcBqCEAAAnIYgBAAApyEIAQDAaQhCAABwGoIQAACchiAEAACnIQgBAMBpCEIAAHDakK+R1OOFNDuIp9EshZTR+4N23HTrZWjADrZ5njVpO9L++c+i2G7As2TdUEwvxpTzghbbAtb1d7AbD3QDPqQhD8KBXRNYpIvYKaV0kiRJopQqZCk1Kbu7HmYPGGOSJEmShDlDAxJRupXIfQNbN2DaB/KvR6i1zjkMWS+p2BHpYoQWNaQt73me1jpJEqUSq5uo+AW6k2lZ62fmJEnyL0o6cxNZj0J9PpIMcxDGcTyxfZvp75nIv8KGfd/bum3rgoXjmo3vB5nG8U6ZnJhotVpSyj6f0O3E6JzRpUuXlcpliyBcsGCB8v08R4+iaGL7dhY2rWeMKYXh1ORkzhFk/vyxsBTaXUEi0kmybds2rXUhAxkRbd+2bfu2ra1222JhXqW8bVu3zJ8/tnTZcrubiEi2Ws3JiYmsG3aKlLRw4fjSpctK5VLWHJJSjYyMjC1YaH3t0g1HR0eXLlsWhiW7UYgNT0xsj6Kob7NwOIMwfRlyx+23nXHaKVNTk0qpgRvHiSiKouUrVrzvrA/PHxtLkqSQPvSB97zrZz/98ejoaD8scp1VOm4e9ZJjnv6M/5CSMnUBImJmT3nLli0XVo9lxhgp5S033XDG206NoshuMiGl3LJ5s+8Hed6vnvzWtz/54Ke0222LLuR53t133XXqSW/auPF+z/N6fx9JKc895xNf+8qXLZ5F0tnM3HnzTnnb6UuWLrO4iZg5DMNfXn7Z+9/zTmNM2iuylmEtrbZarX7wQx+1m48SkdGmUq0EQSCsXk6km7zwxS855NCnZ/q4MENKWa/XzjjtlOuuvcY6SrttOIMw1Wo1//rXWya2bx/EIJRSNpsNNmb3NXuMLVhQVBlz5s4t5JVsBy0cH184Pl7U0RuNxq233NxqtWw7IUupcr6ZXLlq1arVu1tv7vuB7/sF3kH33nPP+nV3W4zC6Wxy6dJlK1etXrHbSusCVuy2Mo3AQiajUqqVq1b3/rizLVi4cMHChdabt9vtcqXCbIjyf2roimEOQiIKgiAIggENQq215/txHDNz+njRs6PP3PODnoIi91f6nGNf2gmNMXk6Yc5TsO5CaTdIN89TQE6e59mNVOm183PcROkmSRJbHL2D8rd/zm6cp+um05E+H4GHOQhFjt+bFa7wX4327dv8rAo/kcI7YZ4uVNTPlWfL0245b6ICf7D9gDIGt4B+aMCHhH9HCAAATkMQAgCA0xCEAADgNAQhAAA4DUEIAABOQxACAIDTEIQAAOA0BCEAADgNQQgAAE5DEAIAgNMQhAAA4DQEIQAAOA1BCAAATkMQAgCA0xCEAADgtCFfjzCnAlfSklJKKSnfYrzWa+DNLMxLRGklvV9Lb0cLEBljRJHrgxc8WczZCdM+YIyxWGM5bXPOtzhz/pso/1KOO84/+4mkm+Tv/NaXIJW/Exa1wnbahfp/fW8E4c7EcZwksRDFjL/NZqPVbOa5CfOPQUmS1Ot13/e11nn2Y0FKWa/XkyTxfL/Hh+4rOTshM3uel84q7PZQKpfz9KIkieM4sd5cCOH7vlLKenMiKpXLdi2QbhKEofXRU0EQ5LkE+RU7n6tUKoVPKHcOQfjPEZHWevXua9bssYfRpvdRKEm2o/ZuK1eFYSiyrxCdTsQ2bNhw+2232oxivGPgXbx4yXOOODIMQ8O9ntOlLbB8xYpf//IKkjRTUm+QIMMm8INHPPJRlUqlkOdRItJJsnrNmjVr9rCfU7NYv+7u31z5K2OMRS/ylHfvPfe0Wi271e211it2W7XXXntb9x8SdOstN99//walPItJIRFFUfu3V165dPlynSQkM7aAYT/w/3LtNXYdIN2KiG695abf/fbKJM5eALPv+Y848JHVkRGLGtJNJia233jD9Vrr3vdhZpYkm83G9m3bCnmxtIsQhP8KxXH87Oc8961vf4fRurDpzPQjnd0N8KsrLnv7qf/teYqFEFm6IBGlXfbscz//7vd9UOtESfspuR3DRkp12S9+9ppXHaO1kZJ6eRcRySSJF46Pf/M7F+2x515FBWG73X7OEc875bTTmQ3ZTQRIvO64Y3/6kx+VyxWLNE17AjMrpbK2PxG1261DD3vmme/7YI766cQ3vv7b3/5GtepnLSB9Gp6cnHzbqSfOdOnsx6eZd7MWe2BmKdXXvvLlC796vkUDxnEyNjZ24be+t+9++1t0QmOMUuq2v976+uOPbTQaFhexA4jSt9u+HyAIB1I6m5NKFfWlMDc2RhtD1kG4owWkyvm10oLcMZkmY4wxWoieTieJ0qYr/tvGjlYg+4kIM2ut83yjytP/89cvct99+a9j/s+cdrOQTnXC9Opbzwby6/MhFEH40Ir6mUZH2H0mfMAmhdw8s3+w0/tfLRVy0J3I2QkLP51ib6J+uI52t2GnrlrhHaDP9fUHTAAAgG5DEAIAgNMQhAAA4DQEIQAAOA1BCAAATkMQAgCA0xCEAADgNAQhAAA4DUEIAABOQxACAIDTEIQAAOA0BCEAADgNQQgAAE5DEAIAgNMQhAAA4DQEIQAAOK27C/Om6zITkRAWK7sWv5JkWr8xxqr+IhnDQjAzS6mklNYr1DOz0doY0/vrYAwLTk9BMgspe7q4NhGlTdeJ/cgdVyFj/VJKqVT+WyDdT/5zsTiuUkoIYYxmtl9nnohUEfXPHF5YrS//j/sgkjLTPZhulV44Y4wxOr2pM+3BGENCpDeRXSdMC2E2Oe8+KaUQdkEgmEW3r353gzDtwV09RFcFQSClLOwOzCEtWSk1NTnh+T4LITjDnUwkmY0Qwvd9qZQs4iKmp+AHwdTUlNaJlIqznEJORJQkcalcyjkCJkkyNTXVajWV8rLWL6WqT0212+08BQghGo3G1MSETrQxOueuMpFS1WpTxhgpc/WfJI4nJia0Nj2uXwghBAlmz/PCUinPXtqtVhzHIuMjAZGMoyjwg3K5LKWyGIfSlg/DsFabqtfrFp0wbYEgCPwgyHz4aczcqNe11llbYGZzpbyuzoO7Ncs2xkgp1/79b5f88KLqSNXobK3PgpWn/uNZRyxdtoyZs06K002uu/bqV738JRPbtyulsp4mEcVx/OSDn/L0w56ZJFoW+mBqIX0ebLWaU5MT9lNxIebOmRsEoVSy94/ELASziaJoYmJ7r48tBBFprUeqI6941fELFo5bd8K77vz7N7/+tSRJLB7siChqRwcf8rRDnvZ0iwJmfOsbF956y01+EPTykVoIIQQZo6sjo6PVEWFbPQsxMbG92WpKkr1/McPMnuf//Y47Lr/058ZuHkZktH7yvz/lgEccmCRx5l4khCQ5f/58pTyL92PpS5UkSbZv32YMW1wDZvY8709//MPVf/6T52VOIyIyxgRB8MxnPXvZ8hV2N0K6nxNPPq1cLltsuyu69USYBuFNN97w1pNPXrJ0PInjbJszl0rhfvs9fOmyZV2qcOfSy//bK3995a+uGLTXokIIIaVsNBqvft0bzvrIJ/Ls542vO/6bF14wd95cnfR6Mi6lrNVqR77gRV/6yoU9PvSD2cWYEGLV6jWnnf6uQgqYcdRLj8lfgLULzj/v1JNOCMOSXQxrrb9w/gWHP+fIjhe26y6/9OdXXP4LTjjrq8X0qjGbZz3nuS97+bF2R280Gi844j+uvfqqcrmc9f2EUmpqavKpTzvsf793kVL2o/05n/joH3//O9/3LS4iMwdBePxrXn/gow6yLqDbuvtqVEoZhioIw6xvF9O2K/YDoRBCKeV53W2iLpFSJlqnn/rSvpupMWeeP6SUQRgGQahVAUEYxLGUUieJVCrPI1Ee+Q+a8zms8AKspbNhZg7CMAhD6yA0xqRf63v/kSI9aJxxHv9gSZJYnELa56Mo8nw/bUOLIAyiUCkviqJSyeYmSmvWOu/tH8dxzovY1du/66M8T7PYqkslZdInZWT14PzL2o1m/t7uCuY3+xTSYgqfGNkpvOyiCpi5cHm60Ow+0PsT6dRxaRaLDXmWTJtPb8LWN1Gnmt26BXpj8H4GAgAA0EEIQgAAcBqCEAAAnIYgBAAApyEIAQDAaQhCAABwGoIQAACchiAEAACnIQgBAMBpCEIAAHAaghAAAJyGIAQAAKchCAEAwGkIQgAAcBqCEAAAnDaQq866hogslnKbvaAgkci0h86uPmhXf7qEmRCCBQvB1kUN7sK2qT5Zv82mEaY3ISIhLM/iAeti2u3EWmePmPUUptfRHcglUf+pPBdxsBfmhfysug7xPwxD9gvz5mfb9acX5hU7htECF5gt5Lh9xaIRmHZ0wnRtWLsBfWYPRS3M26kstDwFZus5RL8p6iLuCgThkOLZ/8kkKNPd/H9/XOjD0I4SHvQfWTbtwG3H07vKvSeLI/fRsGHR/kSd+fhCRIZN7/siC5bFnQLvmH8Ufw/mxzkuIk0PYp0vaxqCsE9JKaMoWrZ8xZtPPHlswViSJBkHYlZK3bn2zhPe8BoimfVeYt4xAF97zdWlUskYk2lzIQQRxXE8vmjRm086ZfHipUncFtkHFKXUhg33nnjCG6bfEWWtQbZazRcd/dJnPPNZWfeQ/n1tauoTH/vw+nV3h2GJOXMj5EQk263m4Uc+/7lHPt+uBXJKD7pp4/1nf/wjW7duU0pl7UjG6NW77/GF8y4wRtvNJIjEdddc89NLLpZSWWyeE7PwPO+e9eu0MRZPh+nfS6m+/c0Lr/7zn5IkyXQNmdNxoH3PunW+71vchoVjZillq938xEc/tHB8sc7YAjM7Iak+9JGPV6rVLt0ICML+pbUeGRl59nOeO3fePLs9fOubF37nW9/0PS99u2SxBz/wPc+zeDuUjhrlcuWZz37O4kWLLQ6d+uXll7779NMSrZWUWcuQUk7Vag8/8JHPeOazsj/SsRDUjtqX/eKnN1x/fbVS6f0wJKWs1Wq777Hnc498fo8PPVutVv/JJT9av35d4PuZLoFUslabetOJpz7r8CPyFPCTH/3oGxd+dWRk1OgCkoCFUEr5vm+9ByL6y3XXXH3Vny3G7/RBKggCKQf4h4060b/+5RXGGLsEY2al1Ps+cFalWu1wZdMQhH2NmVut1qgxxphMd0L698aYSqXi5QjCnL9QYOZ2q2Wy1y+mTyFJknKlorWWVkGojck5hIVhqVKplAsKQpOv/o4golKpVKlU/KxBKKUxhoiMMXkm8lKpSqVaLhdwCVL5f6fj+0EQWJ4+C8ED+Cz4AGEYWneANAi7+pUAQdjviCiNkKxBkv59GkLWQZifdf3pJukwmo6AFoNROgRn3Wo2ZjbT8uzHTv76O2KmEbIWkzZaOomxf6NV6CXoiEJ+8tpX8rRAD74LDPDjNgAAQH4IQgAAcBqCEAAAnIYgBAAApyEIAQDAaQhCAABwGoIQAACchiAEAACnIQgBAMBpCEIAAHAaghAAAJyGIAQAAKchCAEAwGkIQgAAcBqCEAAAnDbk6xGmi+FZrOnaER1ZUZN5x2JwmbaaWQxaSklSkuj1eoRpu6fr1LPVSnLpmq5DsIrbjva32jBtw5wFWC8Fx8xS5r0E0x3Yckk5slqHcsgQERGxEFlbsFNdKB1IyWJNUSGEEMyCua/XkhzmIGTmOI7a7bZSqqh7yfO8PL2QiHw/IJKeZ7MqLxG1221P694vzCulbLfbcRz7vk9Selar8gohPG+wuygzx+223bZpG+okyVlDOoxab+77fp7FwZVSRFIp6x0IlWfjoRDHsd0IppRKb8OcBWidtNttKaX12sg5R8JuG+xRZufCMFy5cvX8+VNKFfREyGLL5k2NRsNuIkVEcRyvu/vOVquRJDrTc4UxxvO8dqu9Zs0e04NQb58IScZxvGjxkg333muM0UmStRGMMUEQ3H//fen/HcTHAmYulUoLxxcRkUX7E8lmozFvbCxnGZs3bWw0m5Jk1hqYWSm1ft3d1mFMRJMTE/fes15rbflESFSr1fp5DO02KeWy5SvCMDCGszaDlKpery1dtjxnA86bN7Zmjz3DMLR6sCM2ZtOmTe12q2+v43AGYdrce+21z1cu/Bazyf5GIS9mJklxHJ9y4pt+edkvRufM0Vpn2oMxJvD9e+9Z/9rjX6GUl7X/SZLtdvvwI4787sU/YcNiuk16xrCRUm66f+Ppp/33+vXrwyAw2W8hKWWr2UrfkXajyK6SUjYbjYMe+7hPfOqzYRDanQUzV0eqIt/lO+v977n8sp+XyxWL6TyRTJJ4+7ZtnudlnYsYY8Kw9NMfX/zb3/za+s0YCZqYnAjDkvWzyOBKp8Lz54999BOf2nufh2mtLabUzBwEQRCEwqoXpUc8+mUvf86Rz6PsAykzSylrtdqJb/rPa676Y6lU7s/rOJxBmPKDYHzRomJrKJVKxvpRhihJkvs2bGC2mAnKer0Rx9GiRYstj94RLDZv3rzu7rsqFZsbgFlIKQf37Sgzh2G4fPluxeb4ls2b169bV61W7S4BEVm/1yKier0+MTFh3wIslOfZfpwaBkS0aMmSYoeykZGRkZER683nzJ0bhkE/v9QZ1CFmFxXV9MyczuZyfiImoiAILDaUUiZ6x49N0kbo9ROhMVLK9BthWCoFQWg1E0x/KtG/989DYuYoagdBkHYJix2k3/jy1OD7fhhaXwIh8t1HSqmcH/mYRY9f7PebOIrSXxxZTQg60IWsO0Da7aMo6vO7eMiDsMBXajl/oTDD+vd+6Q9WZ2rocVPQtLQS2x8u9vXNs4tmeoLVJehMF2K2vgQdOHrvDzpkaBaLrTtSQJ5t+//ThrsvHAAAAASCEAAAHIcgBAAApyEIAQDAaQhCAABwGoIQAACchiAEAACnIQgBAMBpCEIAAHAaghAAAJyGIAQAAKchCAEAwGkIQgAAcBqCEAAAnDbkyzDlXA05/wIiRCSllFLarqYk8qxomK5hlmc9wg60gNwhz07szBzXGMNsMp1H+vf9uZp2VjOdsJCjF7X8E8zWPyOhxbbpMvd5jv6QhjwIC1/YOmq3G41G4PuJ1pk2JCFYCEnkB4F1F/SKXtqbmVvNZqPREMy656EipazX62JHN8jaDlIIUS6X+38ptYcURe1GoyEE9TjXSQgW7Hme5/m9PC48WOEjYbvdbjQazDaRzMyeUl2dTg1zEE5s337tNVfFcWw3lmlj1qzZY6+997FdW1xIKR/7hCcqz69WK1pnvvxKqampyauv+nOr2czaj9M51F133XnZL35ujLZeWPPhjzhw8ZKlgllk3EF6wHK5/LRDD9tvv/2D0H55dGtElCRJEseXX/oLrZNMbcDMSqmJiYlarWb9QN8nHvO4J0ilgrDEPb8EnuetXfv3W2++qfCB2GXbtm299uqrtDF2g4A2Zq+99l6zx57WBXie96QnHbxgbIEfhFavuFhKFfiBdQEPaTiDMI2utWv/dvKJJ0xs366yzyaIZKvVfNOJJ59y2ukWQZj+vVLqTW852W4MNcb4vn/H7be94qUvqtdqnudlChJmDoLgd7+58g+//53IXkC6srwQ4uxzP/+sw4/Qxiilsu5BCDE2Nva+sz5cVIowG98PPnLWB457xdGlUiX7HUhCsDYmCIKBDsI3vunEQuo3xgRBcP6XvvDO098ahqWBbsMBpbVWSv3tjttOPOENjWZTZZ/SSSmbzeapb3vHCW85idkQZZvQpONAqVQ6+bS3W3eA9PWY53nC9hPPQxrOIJyhtdZaCyGyByFrrfM/xGTNjxmGmYiUUiTsLzwz6ySx2HAmCPMOXkTWLZDfzOVLEq21zvO1daAVdQkMsxBCysI6AKSYhdZaJ4nI/kjAzFrr/O8SChwHdsWQByFNs9swfwHWQcLGcCfeyFn/RibncWcU+Bww8zON6atpc1JD8BxT2BO5MYw3ov1hcEfC2ZXkL+NfGfIg5FksNs1fgPXFs+64D2CfxB0aPQv8sclMA9r2gSFR1CXo1BgK+VmPhJ26cfq8J2C+BgAATkMQAgCA0xCEAADgNAQhAAA4DUEIAABOQxACAIDTEIQAAOA0BCEAADgNQQgAAE5DEAIAgNMQhAAA4DQEIQAAOA1BCAAATkMQAgCA0xCEAADgtK6vR5hnQchij94nq6nRLL08aKd2VfiCnLNar6dXc+a4zq6G2KkT74fbMKecjZB7NUEegpGwq7obhMaYdlu32+0kjjNtmF7v/L0nitrtdlsplXVXRLLdbidJkqeA/Jg5iqJ2uy2EMMb07Ljp8N2RgxZ+CyVJ0m63pVTMvWtAIYSUO7pQEIRExbdD7ymlhBCel3eQieOYjRnoeYTneVLav34LgoCI0vbMelwhhFKe9Ug4042zHnqwUJcmqsyGSP79b3f86KIfVEeqWcdTZlae/+zDj1i6bBkzZx1E0k02brzvJz+6uN1uk5Qi62kSJUl80EGPe9wTnmhRQH7pQSe2b/vRDy+q1aakUplPoRMOPeyZa/bY0/oSTE5MXHjBV7Zs2eT7AWfsAyRlu93eb78DXvjio8hqEElr+NMffn/1VX/yfL/3DWiMSXQyNTnFgklQIVewQCyE73t/ufbaK3/9S8/z7IYaY8zzXvjiAw54RKITOWiTifSEiejnP7nkT3/4vR8EmRqBiIwxpVLp8COOHF+8RCdJ9gc6wcy+F8yZO4eI2OKtCFESx497wr8d9JjHFjIS9ka3ghAcZ4yRUt6zfv2Rhz/j9tv+WqmUjc4WhFLJqan6817wwq9e+L9SqQG9Ca+56k/PO/yZzWZTeYoH+6kmOxLMIgiCMAyt96G1/uL5Fxz2jGd1sK7ee/+Z7/jsp86ujIxYvGJh5mazabQWNB2tu0x5anKidtgznvH9S36W9bhO6e6rUWbO825NSpln7Mt5dCGEJLJ7Fukgo3WBw2fOS0BEo6Oj8+bNK5fLWa+FlFIpr1qtWh89xcaYImZ76VSg3W7PmTs3CEOLt1LDIf9t2Gg0tNZpe3aqqt5IrzgRRVEkbO8jIhoZGbG7DZVSUsqwVK7Xa6VS2Xo2mXMc6H/dDUK799rDcfROkQN+CsYYrXU6kGXakJkttnowkrKQFiSidPhIT1904ndDbpJSKqXS9iy6lmxmgjBniuS5C7TWzEYppQb2tUoPDFjHAgAA6CwEIQAAOA1BCAAATkMQAgCA0xCEAADgNAQhAAA4DUEIAABOQxACAIDTEIQAAOA0BCEAADgNQQgAAE5DEAIAgNMQhAAA4DQEIQAAOA1BCAAATkMQAgCA07q7MC8A8Cx2eyh8MdWcSwoXXv+gs27/Hb1uej1eXIh/pbtByMzGGLT9wGEh0qtGUuLmyYOI1DSL4YyIjDGFL22fLhA/uPWnNdj1YxaCiKQs8uWZdfsrpTzfJym11sYYNmYQb+d0OJJKde8Q3QpCrbVS6qo///FD73/v/AULdJJ06UDQVf95wlse+/gnGGOKHQgGUTri7POwfT/7P+fbTQcNs+/7F33vu//7ja8FQdD7OCGiOI6XLV9+2unvGluwwGidaRhN6//5T358/nlfLKR+ZiaiycmJD773zHvvWe/7ftYaiKjVbj3+iU864c0nSSkFs+hhkBBRkiSjo3Peevo7Vu++JkkSmfHozCyV2rDh3re88fVJkgxiCor0LKQ857NfqFZHunSIbgVh2uHu27Dh4ot/snjJWBLHXToQdMPM9PP5LzpK5H4z5qZ00Jk3f+zgpxySZz+33HSjMbpDRWVmjKlUKocc+vS5c+fZ7WHdXXcxm44WlU3Ujn7zqyv+etutYVgyJlslUsp6vRaEpfQWmHlT0jPM7Pv+k578lDV77GG9k+uuvfr0U/+7Xq/bvZYoHDMrpaIoqlZ3TG46fojuvhr1PK9a8arVKoJwsMwEoefhK3IueT4Npg/iURR1tqSsmLnRaIyOzsk6BvVJ/URUrlSq1apdEArBYRh2qbZdwczNZsMYY/FiJn0zF0VRpVIRQgx0EHb1cbYX3whTXT0QdNZMEA7ibdNXiCjPDSz74xutlFJKaTEZ75P6zSwW2xZ+F6TtL3YEcwbpS8X0S60xxu5DY+G69BQ4Gz78AACA0xCEAADgNAQhAAA4DUEIAABOQxACAIDTEIQAAOA0BCEAADgNQQgAAE5DEAIAgNMQhAAA4DQEIQAAOA1BCAAATkMQAgCA0xCEAADgNAQhAAA4ra+XXe2HlcwGXeHLj9Esdht2qbCesb4EPC1nAdZtODSXYNA7Ic9it2HOE0nXJrXbNpWzDbt9Cfo6CJMkNoYpvQyQnZRSKVVgAcwcx3EURZ5SOuOaqErKKIqSJOlSbT1jfQ+n106pvDdpkiR2K2NLoiiK4jjOWUDh0k4oSQ5oJ/R9n4gs7mXP84QQSnkzt6GxyjOlVNY1gR8giWO7QwshmNnr8jjW10G4bNmKcqWC1e3tSCknJye2bN5S4HTW971Vq1aREGGplPU6Sikb9fqSJUsFkRjY1wOtZnPjxvvtnuqM4VK5tHXLZhK5zn3J0mXVatXiPiKiOIp2W7m62OlUTkqplatWG2OCIDScuRM2G/UlS5Z0qbaHlC4uv+7uuyrVkajdljJbTzDGhKXSli2bV6/ePYoiktKiK0opt23dsn379jyvFpatWFEu2w7mzFIppbr4Ia9Pg5CZgyB4x7vfd9DjHpfE8YAOggViZt/3v/fdb/2/97/X87zevyBN548LFo5/4tOfTRJtdf2I2ZTLlQG9+sYYKeXNN9948ltOiKJI2o5BkxMTfhDYv18V4pTTTj/4qYfEUWTRkiyE53nz54+JAZyLpAXPmTv3Y2d/Ok4S+05YKaf9ucctwMxSykajfvpbT/aDkDOmuBBCSdVo1g985KM/f95XwrBkjMl6CulI8rnPfPqLnzs3DMOs/ZCIjNHl8si73/OBRx30mDjHYF6tjoquXYI+DUIhBBEtXrJk8eLC5mJDYGxswY7/Isr5it+OUmrx4qW9P27/aLda69fd3Wq1lFJ2YSalzPVWinnRokWLFi2238OAk1IuGthhJH0ivO++DXadRyk1NTWxevWaFbut9Dzfuoy5c+emHxotymAWUsrFS5b081Xo3yAUQiRJMvOlt+haBkz6OKK1LrqQDvxaZ6CvPhH5vq+1tg5CkbsN0/so7RJ2exjoSyAGvxOmn/osKKV8P1BKxXGslGcxlnZqJOnzTtjXQTjzM6dBvw97r09+7SZw7XL85K9TrH8zOTQG/cTz//DYeiztVM/p806If0cIAABOQxACAIDTEIQAAOA0BCEAADgNQQgAAE5DEAIAgNMQhAAA4DQEIQAAOA1BCAAATkMQAgCA0xCEAADgNAQhAAA4DUEIAABOQxACAIDTEIQAAOC0vl6PMD9mU9AacJ3Rt8t37bqc6/ANQQvklLMF0vY3xhhjOljVrkiPmH8VxqLqzy89d7uF3Wez7gNSSiklEaVNaLcw7+xdZS0gPff0f3NeROsVfXfFkAchkXR7FC0ekiynOI6TJBbCsg2Zjef5dqNYTukRgyDIuZ8gCAupv4M8z7felpnb7TazsegDSqlGvR7HcblcsetCM83eqNfTMMu0ORFpnXie5/tBP1/EYQ7CrVu3/v63V0ZRJIkG7rGQiLTWc+bOefK/P6VUKltM5YqVFtxsNH7z619O1WpKqayTYiJKknj58t0e/8R/G6xz7xQiSpJk3/333/+AR3COqfQdt9+2bdtWNkb0thmZOfCDq6/6U57hj4h+/9srdZxEcTSQ3YBZKnn7bbdZ3AIibcMgPORph80bm2+0ztwCREkcj40t+N53vqWUsnkuZSYpieiYVx7n2Z6C53nXXXfNXXeuNbadkIiedfgR+SdV/8pwBmE6Ct+59m+nnHTC9m3b7bpgsaSUzWZzv/32//YPLiktGdQg3Lp16zvPeNsdt99WLpezziWllLVa7cjnv+Bxj38CKTVwLZAfEUXt9jOfdfhJJ5+WZz/HvfwlP7zoe9VKVRfxdtHzlOf51jeglPLL//OF//n8ZztbVY/5vu8HgdVcMCmXK6e/68w99tzL+ujXXH3VUc9/Tr1etxgJlZSNZvPd7/nA2Z/+nHUBURQf/cIjrvzVFZVyxaITMrNS6vpb/xYEY10aB4YzCFNSylKpXC5HSslBDEIhKCyVBnr0J6JSqVQuV8rlkkUQamOCIOxSbYMiiZP0O591T/A8r1yulLLPRTol593XveeAXsrRCOmrUTbGZH221lorKZMkLpVKxrDFSCilZEFix+8tmChbAcxMJNrtlu/75XLZrhOmQdjVkXCYg1Ds+KWAYc77sbr3pisfsLIfbOZEsp5L+huPIWiBnGY+sloPBNaXoE8MaNkdRLNk3nDHj2UsR8J0QyEEkRTCWHTCtGyeJeseetB1+/TTJQAAQG8gCAEAwGkIQgAAcBqCEAAAnIYgBAAApyEIAQDAaQhCAABwGoIQAACchiAEAACnIQgBAMBpCEIAAHAaghAAAJyGIAQAAKchCAEAwGlDvgwTgMixjk+HlkAjIrJZmDv7sjs72ZOwq6Ef9MMyTDmajjq0kpTNakQdbTpmFiLzKk5EIutWvYcghKFnfxN2ZDnsdAcWe6Edm+cvgNK9DWYM9sUgmrvpKGc/ZKtFlVkI05FFPdk+y5n7YiazcwhCGHpdXdr6ITBzHMdxHFuMR1LKKI611jlrSJIkjuLYj4taoT6fdHXyIj/isOHEJHl2IKXKurj8bJ7nkZTKakMhhPLyjvNSSSIiylxCeu/5vlfkTbgLEIQwtNLnuUt//tMrLr808INMOURE2uiR6shxr33D+Pi4xaNh+ver1+xx5vs+qLWxeCQgojiOH/nog0S+MH/5K48/+KlPU543ADPzByFJ3/7mN6679uogyHYFO3N0ona7/fBHHHjUS49RUhk2lPHhkAUrpX70g+/97ne/zXoKzCylbLWa5579iYWLFiVJbHH0IAjXr18Xx7GU0m51eM/zLrv0Z1u3brGbkxFRFLXvvvNOz/ON6dMeiCCEoZWm15//+IfPnXtOuVxlzvA8RERJEo8vWvSCFx+dJwiXLl12zLHHZau70w497BnFFpDTNVddddWf/xCGYSFBqHWyavc1rzr+tXn28/c7br/y17+i7KcgpWy329/7zv8aYyy/UzJLpYIgsNlWCGZWSl191Z//+Iff2b4hZhLkB4FSqj/ec/8TCEIYcr4fVCrVcrliEYTlciX/K52cLyQp909mbH5k0U90kue1ZCcK0DqOY6VU1vlQ2uxElOQ4BSIqlcvWm4tOdADf962jNNXnr+URhDDkmNkYY4zJGoTpVvkLyPNxqCPyR2mxCi+eiKSU6atFuyDMeQqFp8igz6UeEv4dIQAAOA1BCAAATkMQAgCA0xCEAADgNAQhAAA4DUEIAABOQxACAIDTEIQAAOA0BCEAADgNQQgAAE5DEAIAgNMQhAAA4DQEIQAAOA1BCAAATkMQAgCA07AeIQw5mpZpfe2ZrXiW7hX5kMUUdehUznPPWT/Nkmc/eQ7dqf3Y7arwtQDzt0Dhp7BzCEIYclrrJEmSJMm+Qn2SJIlSioiUUt2rsP8Vm8QzV7D369NKKZMk0Vrn3E/OU5BSFnwJjGaTK8kKP4WdQxDCkCtXymNjY6VSOdOclEhorefOnVur1aampnSSFLDQPAk2HJZKpVKp14eexRhTr9fZGM70TC2EIMHMYRiWSuU8BVRHRuaPjVUrVZNvLLYgpQzCYGRkJOd+KpXq2NhYuVLJfAokmE2jVk+0LipImLlcKpdKJebMXUCIHd2gUa8nSdK3WYgghKGVRtfRL335IYceJqUUIsMYxMwkqF6vf/JjH7733nsC3+/9ux2SstVoHPPK44991fHM3PtBJD3ofRs2nP7Wkzdtul95nsg0mZCy1Wy84MUvef1/npCn/hPectIxx74q6xXsEDLGzJ03L+1LWU9h5u9f9erXPufI52fvhIKIarWp0087+bZbby2VSoU8E7darWNe/qqXvuIVxpisLZCeQqNRP/Odb7/+uusKOYVdgSCEIbd4yZLFS5bYbdto1P92x21/ue7aarVayBhUm6o99dDDenzcB2i329f/5Zr169b5QbbZgJSyVqs95nFPyFnAit1WrthtZc6dFGvpsuVLly232zaKokqlWuA3NmZevmLFfvs/3HoPWuuRkdFM3yZ6DEEIQ46ZjTGU9WmCjSDZaDRKpfLo6JxypVJIEJKgIAh6fNwHIKJKpToyOuplfCxOPwsFQd73usYYZs58BTshPSgR5XwxzsYYi1NgJqJ6vW5M3o+UOUVRZLQ2bIgytsOOU6jl/87aVQhCGHJ2P3VhTkc/aYzRWhutC3ilw6y17oef26WNIKXMVsyO+vO2WwFfZzuNpLT4tRVP90KbL3MdRURSKWLKGoTTp6D69utgauB7GAAAQB4IQgAAcBqCEAAAnIYgBAAApyEIAQDAaQhCAABwGoIQAACchiAEAACnIQgBAMBpCEIAAHAaghAAAJyGIAQAAKchCAEAwGkIQgAAcBqCEAAAnDbc6xGSnNYPi7plIqWUUg3BSmw5pcvqCqJ0YbMeHtcQifxrEBKRddlSSqk6sJCbMUYwi+z7Sds8ZyOkV7DHl284dKT9Rf5O2PerCeY3zEFojG40Go16XXmKzaAFoZKNRrPZbA5chHeW8jzP94s4shRCVCqVnEOA1jqK2nZrq0sl67VaHEd5ChC5F7Ytl3M1gu/7mM/lUalUKF8Daq2jKBLMgkTWrpgORHEc5ymg/w1zEFYq1Yc/4sCpqUkl1cDFiZSy1W7tvvsefjEx0BeklJMT22+56UYpJfd2lW7DLKWcmNjearWktDyyMWZkZGTFbvuRlCJ7D5RSNhuNJUuX2R19xvp1d09NTUmSWUdBwyyVumfdujiO7bJQSrlp08bb/nqrMWbInym6gIUgoqmpqVajYTkXITJaV0eq++y2n7TthK12a/GSJTZHHxzDGYRpp9lzz72/cN5XdzwLDuBdyMye8kbnzBG5J/WDyBgThuG1V1917MuO6v3RWTAJaVhPTU4GQWDxekpK2Wq19t3/gHM+88Ug8O3eDTJzuVwR013azkc/9MHLLv15pVw2Gd+LsGBJMkmSqalJpTLPJo0xQRD+4mc/+f1vrhy4mWifICJj9OTkpO/7dp2w2ag/+qDHfOpz/1MqldgwZZ/VMXOlUhVCEA3tKDScQZjyfG/+/LGiqwB7RBRF0caN9xdYg8rzlY45CIJFixYVO4+Z2L594/33VSpVu69NREIpy4GCiJqNRr1Ws9scUtadkIRgZt8PFi1a5Hnuvlt6SMMchEIIZh7QqShNvxgZ+s/UO0dEfhAUc+hO9B9mjuMo8APO/nOVTvUBz/OCIPCtnmvzN4JSyvO8gbwJ+0AHO6GSymR/LeHIQDTkQTjQ129Q6+40zv2rOcvjdmg/RDL9RmjRFTvSB3b8btMYi5bM3wiDOxntB53thLK4TtjnhvadLwAAwK5AEAIAgNMQhAAA4DQEIQAAOA1BCAAATkMQAgCA0xCEAADgNAQhAAA4DUEIAABOQxACAIDTEIQAAOA0BCEAADgNQQgAAE5DEAIAgNMQhAAA4LS+Xo/QGKO1FkIM7pqCRTHGDMc6cPlXlByOdshDTiu6kMJYrEg8TNIFKdMxocdjaXpEY0znllbsir4OwlK5rJQquoqBlI56YRgWXUheSZJEUTR9F2W/h5n9wPc8v9N1DZJWs1mv1ZidzANmIgpLJZcn00qpSqVaYAGValXKvh7J+zcItdY//9mP77pzbRzHRdcyeJg5DMM//O63O+7/AXwkIqI4jnfbbeUTn/RkIrI6A/Z8/y/XXH3zzTe5PKN66qFPH1u4MAxDYwavG+TDSqlGo/GrKy6bnJx08JmYmT3P37jxvm9ceEEYhoXMhKSUrWZj08aNSqq+fTfTp0FIRFrrz336HME2jwEwQ0rZt51v54goiqJ99z/gwx87m6yGsPS1zEfO+sBf/nKd5/nM7j0PCSGEOP61byi6hCJt3bLlxc87fNu2rZ5Xcu2Z2BgTBMHatWvPeOvJQhQ0lrIQJIjI8/2+HYv6NAhTRIQUBGam6VTLumGXSoKBkHYAdAMSQsjiRtJBGMP7OgjxI5mchmMI4GkWG6IHpYajJ2SVdgA3z/0BCr8R+vwq9HcQ9nnjQU/M/HA0682c/xenQ8PZdkAfSGEo3Tnnvh4DAADMhiAEAACnIQgBAMBpCEIAAHAaghAAAJyGIAQAAKchCAEAwGkIQgAAcBqCEAAAnIYgBAAApyEIAQDAaQhCAABwGoIQAACchiAEAACnIQgBAMBp3V2PUErp+77v+1gQbLDMLGcqZa6pEhF5npf2AWNMpm3TzqOUylOAEEIqlRbAnK2AvMdN6/f6e8lPN1h3QugHzJx/HNi57t6lzWZz81SbxYY4jrp6IOismSBsNpt59qO13rRx44Z7N5cryiIIpxp627ateQoQQtQmJzds2FIub+99EDYaeuuWLVgTtVjGmE2bNm64d1NYytwJoR+kQdjV+7dbQZg+Sey73/7vfPtbR0ZHjdFdOhB0AwliwUKIfffbX1itb55uMmfOnP884S1btmy2eCAjklG7ve/++1uvMJ5u+JSnHao85fsBi54OgkQyjqI1e+7p4aGwUNVq9fVvfNPmzZs8r9dvBaAjmIWUslSqdO8QhOkqAAC4rLtzVWOM1okQ+EQ4qJRSeT4TMrPWOs9kSxLl/MymtS7whVj6lbSoo0MqSRLM+Aed7/vd2zmeCAEAwGn45xMAAOA0BCEAADgNQQgAAE5DEAIAgNMQhAAA4DQEIQAAOA1BCAAATkMQAgCA0xCEAADgNAQhAAA4DUEIAABOQxACAIDTEIQAAOA0BCEAADgNQQgAAE5DEAIAgNMQhAAA4DQEIQAAOA1BCAAATkMQAgCA0xCEAADgNAQhAAA4DUEIAABOQxACAIDTEIQAAOA0BCEAADgNQQgAAE77/+lnBEkGrYBfAAAAAElFTkSuQmCC" alt="QR code usedalea.ai" class="qr-img">
+        <p class="qr-caption">APONTE A CÂMERA<br><strong>usedalea.ai</strong></p>
+      </div>
+
+      <a class="btn" href="https://usedalea.ai" target="_blank" rel="noopener">Acessar usedalea.ai</a>
+    </section>
+
+    <!-- MÓDULO 11 -->
+    <section class="module" id="m11">
+      <div class="kicker">Módulo 11</div>
+      <h2 class="mod-title">Suporte</h2>
+      <p class="subtitle">Estamos aqui pra te ajudar</p>
+
+      <p>Ficou com alguma dúvida sobre campanhas, comissões, produtos ou uso da marca? Fale com o time Guava:</p>
+      <ul class="list">
+        <li>Grupo oficial de afiliadas no WhatsApp — para avisos, campanhas e dúvidas rápidas.</li>
+        <li>Time de parcerias Guava — para questões sobre comissão, cadastro e aprovação.</li>
+        <li>Dúvidas: consulte o nosso site <a href="https://guavaskin.com/pages/duvidas" target="_blank" rel="noopener">guavaskin.com/pages/duvidas</a>.</li>
+      </ul>
+      <a class="btn" href="https://chat.whatsapp.com/JOmpRyO7bsG3ZRiUxlrmZv?s=cl&p=i&mlu=0" target="_blank" rel="noopener">Grupo de WhatsApp</a>
+    </section>
+
+    <footer class="end">
+      <span class="accent">Vamos simplificar a beleza de pessoas reais, juntas.</span>
+      <span class="wordmark">GUAVA · BELEZA PRÁTICA</span>
+    </footer>
+
+  </main>
+</div>
+
+<script>
+  document.querySelectorAll('nav.sidebar .navlink').forEach(function(link){
+    link.addEventListener('click', function(e){
+      e.preventDefault();
+      var id = link.getAttribute('data-target');
+      var target = document.getElementById(id);
+      if(target){
+        target.scrollIntoView({behavior:'smooth', block:'start'});
+        try { history.pushState(null, '', '#' + id); } catch(err) { /* preview sandboxado: ignora */ }
+      }
+    });
+  });
+
+  // Destaca no menu o módulo visível durante o scroll
+  var sections = Array.from(document.querySelectorAll('section.module[id]'));
+  var links = Array.from(document.querySelectorAll('nav.sidebar .navlink'));
+  var byId = {};
+  links.forEach(function(l){ byId[l.getAttribute('data-target')] = l; });
+
+  var observer = new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){
+      var link = byId[entry.target.id];
+      if(!link) return;
+      if(entry.isIntersecting){
+        links.forEach(function(l){ l.style.background=''; l.style.opacity='.8'; });
+        link.style.background = 'rgba(192,206,131,.18)';
+        link.style.opacity = '1';
+      }
+    });
+  }, { rootMargin: '-20% 0px -70% 0px', threshold: 0 });
+
+  sections.forEach(function(s){ observer.observe(s); });
+</script>
+</body>
+</html>
